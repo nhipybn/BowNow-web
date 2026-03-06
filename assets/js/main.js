@@ -4,25 +4,30 @@
  * Chức năng: Quản lý Icon, Modal, Swiper, FAQ và Đồng bộ dữ liệu Google Sheets
  */
 
+/**
+ * BOWNOW - MARKETING AUTOMATION SYSTEM
+ * File: main.js
+ * Chức năng: Quản lý Icon, Modal, Swiper, FAQ và Đồng bộ dữ liệu Google Sheets
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
     // --- 1. KHỞI TẠO BIỂU TƯỢNG (LUCIDE ICONS) ---
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
-    // --- 2. CẤU HÌNH GOOGLE APPS SCRIPT ---
-    // URL này nhận dữ liệu và ghi vào Sheet ID: 1IkLeSG7Eo3YbV7tt-wSd0_4FK68-nZWBinpLSgaXLSs
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz0_EIP-C7caQYCyiWuMnbZp5XYtB5W_UOTFwbfjpFXvBRCIsGJSCrbzu7tiW-08dh7/exec"; 
+    // --- 2. CẤU HÌNH GOOGLE APPS SCRIPT (MÃ ID MỚI NHẤT) ---
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzr8AEbSg3AGROp4zWWultCrl8npT7JJEW8GeVsRdgL0PgNBThvD8GGbS3TFx91-fU2/exec"; 
 
     // --- 3. QUẢN LÝ MODAL (MỞ/ĐÓNG FORM) ---
     const modal = document.getElementById('contact-modal');
     const modalSuccess = document.getElementById('form-success');
     const footerSuccess = document.getElementById('footer-form-success');
 
-    // Hàm mở Modal toàn cục
+    // Hàm mở Modal toàn cục (sẵn sàng để gọi từ thuộc tính onclick trong HTML)
     window.openModal = function() {
         if (modal) {
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // Khóa cuộn trang
         }
     };
 
@@ -32,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             if (modalSuccess) modalSuccess.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Mở lại cuộn trang
         }
     };
 
-    // Đóng modal khi click ra ngoài vùng form
+    // Đóng modal khi click ra ngoài vùng form trắng
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
@@ -60,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         });
 
-        // Reset animation cho các thanh biểu đồ khi chuyển slide
+        // Reset animation biểu đồ khi chuyển slide
         caseSwiper.on('slideChangeTransitionStart', function () {
             document.querySelectorAll('.animate-bar').forEach(bar => {
                 bar.style.animation = 'none';
@@ -82,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- 6. XỬ LÝ GỬI DỮ LIỆU FORM (UNIVERSAL HANDLER) ---
+    // --- 6. XỬ LÝ GỬI DỮ LIỆU FORM (TỐI ƯU CHO GOOGLE SHEETS) ---
     const allForms = document.querySelectorAll('form');
     
     allForms.forEach(form => {
@@ -93,14 +98,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!submitBtn) return;
             const originalText = submitBtn.innerHTML;
 
-            // Thu thập dữ liệu thông minh dựa trên Placeholder của Input
-            const formData = {
-                fullName: form.querySelector('input[placeholder*="Họ và tên"]')?.value || "",
-                phone: form.querySelector('input[placeholder*="Số điện thoại"]')?.value || "",
-                email: form.querySelector('input[placeholder*="Email"]')?.value || "",
-                company: form.querySelector('input[placeholder*="Công ty"], input[placeholder*="doanh nghiệp"]')?.value || "",
-                service: form.querySelector('select')?.value || "Tư vấn tổng thể"
-            };
+            // Thu thập dữ liệu từ các input dựa trên placeholder
+            const fullName = form.querySelector('input[placeholder*="Họ và tên"]')?.value || "";
+            const phone = form.querySelector('input[placeholder*="Số điện thoại"]')?.value || "";
+            const email = form.querySelector('input[placeholder*="Email"]')?.value || "";
+            const company = form.querySelector('input[placeholder*="Công ty"], input[placeholder*="doanh nghiệp"]')?.value || "";
+            const service = form.querySelector('select')?.value || "Tư vấn tổng thể";
+
+            // Chuyển đổi dữ liệu sang định dạng URLSearchParams (Tương thích tốt nhất với Apps Script)
+            const formData = new URLSearchParams();
+            formData.append('fullName', fullName);
+            formData.append('phone', phone);
+            formData.append('email', email);
+            formData.append('company', company);
+            formData.append('service', service);
 
             // Hiệu ứng Loading
             submitBtn.disabled = true;
@@ -117,14 +128,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Gửi dữ liệu đi bằng Fetch API
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
+                mode: 'no-cors', // Rất quan trọng: Bắt buộc cho Apps Script
                 cache: 'no-cache',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData.toString()
             })
             .then(() => {
-                // Hiển thị trạng thái thành công cho từng loại Form
-                if (form.getAttribute('id') === 'lead-form' && modalSuccess) {
+                // Xử lý thành công (Mặc định là thành công vì no-cors không đọc được response)
+                if ((form.id === 'lead-form' || form.id === 'contact-form') && modalSuccess) {
                     modalSuccess.classList.remove('hidden');
                 } else if (footerSuccess) {
                     footerSuccess.classList.remove('hidden');
@@ -134,13 +145,91 @@ document.addEventListener('DOMContentLoaded', function() {
                 form.reset();
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
-                console.log('Dữ liệu đã được đẩy về Google Sheets.');
+                console.log('Dữ liệu đã được gửi đi thành công.');
             })
             .catch(error => {
-                console.error('Lỗi kết nối:', error);
+                console.error('Lỗi gửi Form:', error);
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = "Lỗi! Thử lại sau";
+                submitBtn.innerHTML = "Lỗi! Vui lòng thử lại";
             });
         });
     });
 });
+
+    // --- 4. KHỞI TẠO SWIPER ---
+    if (document.querySelector('.case-swiper')) {
+
+        const caseSwiper = new Swiper('.case-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 80,
+            loop: true,
+            speed: 1200,
+
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false
+            },
+
+            navigation: {
+                nextEl: '.swiper-next-btn',
+                prevEl: '.swiper-prev-btn'
+            },
+
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+
+            effect: 'creative',
+
+            creativeEffect: {
+                prev: {
+                    shadow: true,
+                    translate: ['-20%', 0, -1]
+                },
+                next: {
+                    translate: ['100%', 0, 0]
+                }
+            }
+        });
+
+        caseSwiper.on('slideChangeTransitionStart', function () {
+
+            document.querySelectorAll('.animate-bar').forEach(bar => {
+
+                bar.style.animation = 'none';
+                bar.offsetHeight;
+                bar.style.animation = null;
+
+            });
+
+        });
+
+    }
+
+
+    // --- 5. FAQ ACCORDION ---
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+
+        item.addEventListener('toggle', () => {
+
+            if (item.open) {
+
+                faqItems.forEach(other => {
+
+                    if (other !== item) {
+                        other.removeAttribute('open');
+                    }
+
+                });
+
+            }
+
+        });
+
+    });
+
+
+  
