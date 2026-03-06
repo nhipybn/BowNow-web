@@ -129,11 +129,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const originalText = submitBtn.innerHTML;
 
-            const fullName = form.querySelector('input[placeholder*="Họ và tên"]')?.value || "";
-            const phone = form.querySelector('input[placeholder*="Số điện thoại"]')?.value || "";
-            const email = form.querySelector('input[placeholder*="Email"]')?.value || "";
-            const company = form.querySelector('input[placeholder*="Công ty"], input[placeholder*="doanh nghiệp"]')?.value || "";
-            const service = form.querySelector('select')?.value || "Tư vấn tổng thể";
+            const fullName = form.querySelector('input[name="fullName"]')?.value || "";
+            const phone = form.querySelector('input[name="phone"]')?.value || "";
+            const email = form.querySelector('input[name="email"]')?.value || "";
+            const company = form.querySelector('input[name="company"]')?.value || "";
+            const service = form.querySelector('select[name="service"]')?.value || "Tư vấn tổng thể";
 
             const formData = new URLSearchParams();
 
@@ -156,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
