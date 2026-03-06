@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- 2. GOOGLE APPS SCRIPT ---
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzr8AEbSg3AGROp4zWWultCrl8npT7JJEW8GeVsRdgL0PgNBThvD8GGbS3TFx91-fU2/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydZqanXFkAiA5mVaxgsbON-mTEsrxCqShFynIx7Ab4bN8epaD9GtWu4fUI6_Rcn2u4/exec";
 
     // --- 3. MODAL ---
     const modal = document.getElementById('contact-modal');
