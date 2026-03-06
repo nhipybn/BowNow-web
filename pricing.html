@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng giá Giải pháp Marketing B2B | BowNow & BowNow</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .bg-mesh {
+            background-color: #ffffff;
+            background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.03) 0px, transparent 50%);
+        }
+
+        .pricing-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-12px);
+        }
+
+        .toggle-btn.active {
+            background-color: #2563eb;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+
+        #contact-modal.hidden { display: none; }
+        #contact-modal.flex { display: flex; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased bg-mesh">
+
+    <!-- NAVIGATION BAR -->
+   <header class="fixed w-full top-0 z-[100] bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">
+                BowNow.
+            </div>
+            <div class="hidden lg:flex space-x-10 font-bold text-slate-500 text-[10px] uppercase tracking-[0.2em]">
+                <a href="index.html" class="hover:text-blue-600 transition">Trang chủ</a>
+                <a href="service.html" class="hover:text-blue-600 transition">Hệ thống</a>
+                <a href="bposervice.html" class="hover:text-blue-600 transition">Dịch vụ BPO</a>
+                <a href="pricing.html" class="text-blue-600">Bảng giá</a>
+                <a href="blog.html" class="hover:text-blue-600 transition">Blog</a>
+            </div>
+            <button onclick="openModal()" 
+                class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200 text-sm">
+                Liên hệ tư vấn
+            </button>
+        </nav>
+    </header>
+
+    <main class="pt-32">
+        
+        <!-- HERO SECTION -->
+        <section class="py-20 text-center">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <span class="inline-block px-4 py-1.5 mb-8 text-[10px] font-black tracking-[0.4em] text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+                    Investment for B2B Growth
+                </span>
+                <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter uppercase italic">
+                    Đầu tư <span class="text-blue-600 italic">Hiệu quả</span> <br> Bứt phá Doanh thu
+                </h1>
+                <p class="text-lg md:text-xl text-slate-500 font-medium italic leading-relaxed">
+                    Lựa chọn công cụ tự động hóa hoặc giải pháp vận hành trọn gói phù hợp với quy mô và mục tiêu tăng trưởng của doanh nghiệp bạn.
+                </p>
+            </div>
+        </section>
+
+        <!-- PRICING TABS (SAAS vs BPO) -->
+        <section class="pb-24">
+            <div class="container mx-auto px-6">
+                
+                <!-- PHẦN 1: BẢNG GIÁ HỆ THỐNG SAAS BOWNOW -->
+                <div class="mb-32">
+                    <div class="flex items-center justify-between mb-16 border-b border-slate-100 pb-8">
+                        <div>
+                            <h2 class="text-3xl font-black text-slate-900 uppercase italic tracking-tighter">01. Phí bản quyền Hệ thống</h2>
+                            <p class="text-slate-500 text-sm mt-1">Công cụ định danh & Automation hàng đầu Nhật Bản.</p>
+                        </div>
+                        <div class="hidden md:flex items-center gap-4 bg-slate-50 p-1 rounded-2xl border border-slate-100">
+                            <span class="px-6 py-2 bg-blue-600 text-white rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg">Thanh toán Năm (Gợi ý)</span>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <!-- SaaS Essential -->
+                        <div class="pricing-card bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-sm flex flex-col group">
+                            <h3 class="text-slate-400 font-black text-[10px] uppercase tracking-[0.3em] mb-6">Essential</h3>
+                            <div class="mb-10">
+                                <span class="text-4xl font-black text-slate-900 tracking-tighter">$200</span>
+                                <span class="text-slate-400 font-medium italic">/tháng</span>
+                            </div>
+                            <ul class="space-y-5 mb-12 flex-grow">
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> 3.000 Lead Danh bạ</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> 30.000 Page View/tháng</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> 12 Tháng lưu trữ nhật ký</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Gửi Email không giới hạn</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600 opacity-30 italic"><i data-lucide="minus" class="w-4 h-4"></i> Không hỗ trợ API</li>
+                            </ul>
+                            <button onclick="openModal()" class="w-full py-4 border-2 border-slate-100 text-slate-900 font-black rounded-2xl group-hover:border-blue-600 group-hover:text-blue-600 transition-all uppercase italic text-xs tracking-widest">Đăng ký Essential</button>
+                        </div>
+
+                        <!-- SaaS Standard -->
+                        <div class="pricing-card bg-white p-10 rounded-[4rem] border-4 border-blue-600 shadow-2xl flex flex-col lg:-translate-y-6 relative z-10">
+                            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-xl">Phổ biến nhất</div>
+                            <h3 class="text-blue-600 font-black text-[10px] uppercase tracking-[0.3em] mb-6">Standard</h3>
+                            <div class="mb-10">
+                                <span class="text-4xl font-black text-slate-900 tracking-tighter">$300</span>
+                                <span class="text-slate-400 font-medium italic">/tháng</span>
+                            </div>
+                            <ul class="space-y-5 mb-12 flex-grow font-bold">
+                                <li class="flex items-center gap-3 text-sm text-slate-700"><i data-lucide="zap" class="w-4 h-4 text-blue-600"></i> 5.000 Lead Danh bạ</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-700"><i data-lucide="zap" class="w-4 h-4 text-blue-600"></i> 50.000 Page View/tháng</li>
+                                <li class="flex items-center gap-3 text-sm text-blue-600"><i data-lucide="zap" class="w-4 h-4 text-blue-600"></i> 24 Tháng lưu trữ nhật ký</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-700"><i data-lucide="zap" class="w-4 h-4 text-blue-600"></i> Không giới hạn Website</li>
+                                <li class="flex items-center gap-3 text-sm text-slate-700"><i data-lucide="zap" class="w-4 h-4 text-blue-600"></i> Hỗ trợ vận hành cơ bản</li>
+                            </ul>
+                            <button onclick="openModal()" class="w-full py-5 bg-blue-600 text-white font-black rounded-3xl shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition-all uppercase italic text-sm tracking-widest">Trải nghiệm Standard</button>
+                        </div>
+
+                        <!-- SaaS Premium -->
+                        <div class="pricing-card bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-sm flex flex-col group">
+                            <h3 class="text-slate-400 font-black text-[10px] uppercase tracking-[0.3em] mb-6">Premium</h3>
+                            <div class="mb-10">
+                                <span class="text-4xl font-black text-slate-900 tracking-tighter">$500</span>
+                                <span class="text-slate-400 font-medium italic">/tháng</span>
+                            </div>
+                            <ul class="space-y-5 mb-12 flex-grow">
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> 20.000 Lead Danh bạ</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> 100.000 Page View/tháng</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Ưu tiên tích hợp API</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Bảo mật đa lớp nâng cao</li>
+                                <li class="flex items-center gap-3 text-sm font-medium text-slate-600"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Support 24/7 Priority</li>
+                            </ul>
+                            <button onclick="openModal()" class="w-full py-4 border-2 border-slate-100 text-slate-900 font-black rounded-2xl group-hover:border-blue-600 group-hover:text-blue-600 transition-all uppercase italic text-xs tracking-widest">Liên hệ Premium</button>
+                        </div>
+                    </div>
+                    <p class="text-center text-[10px] text-slate-400 mt-10 italic">* Chi phí SaaS được tính bằng USD và quy đổi theo tỷ giá Vietcombank tại thời điểm thanh toán. Hợp đồng tối thiểu 12 tháng.</p>
+                </div>
+
+                <!-- PHẦN 2: DỊCH VỤ VẬN HÀNH BPO MARKETING (THUÊ NGOÀI) -->
+                <div>
+                    <div class="flex items-center justify-between mb-16 border-b border-slate-100 pb-8">
+                        <div>
+                            <h2 class="text-3xl font-black text-slate-900 uppercase italic tracking-tighter">02. Dịch vụ Vận hành BPO</h2>
+                            <p class="text-slate-500 text-sm mt-1">Sở hữu team Marketing chuyên gia vận hành trên hệ thống BowNow.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <!-- BPO Foundation -->
+                        <div class="pricing-card bg-slate-50 p-10 rounded-[3.5rem] border border-slate-100 flex flex-col group">
+                            <div class="mb-8">
+                                <h3 class="text-xl font-black text-slate-800 uppercase italic tracking-tighter">B2B Foundation</h3>
+                                <p class="text-[10px] font-bold text-slate-400 mt-2">MỤC TIÊU: CHỐNG LÃNG PHÍ LEAD</p>
+                            </div>
+                            <div class="mb-10">
+                                <span class="text-3xl font-black text-slate-900 tracking-tighter">15.000.000đ</span>
+                                <span class="text-slate-400 font-medium italic">/tháng</span>
+                            </div>
+                            <ul class="space-y-4 mb-12 flex-grow text-xs font-medium text-slate-600">
+                                <li class="flex items-start gap-2"><span>●</span> SEO: 06 bài viết giải quyết nỗi đau/tháng</li>
+                                <li class="flex items-start gap-2"><span>●</span> Email: 04 bản tin chuyên ngành định kỳ</li>
+                                <li class="flex items-start gap-2"><span>●</span> Vận hành & đăng bài Social (8 bài/tháng)</li>
+                                <li class="flex items-start gap-2"><span>●</span> Tối ưu CTA & Landing Page cơ bản</li>
+                                <li class="flex items-start gap-2"><span>●</span> Báo cáo danh sách công ty hàng tuần</li>
+                            </ul>
+                            <button onclick="openModal()" class="w-full py-4 bg-white border-2 border-slate-200 text-slate-900 font-black rounded-2xl group-hover:border-blue-600 group-hover:text-blue-600 transition-all uppercase italic text-xs tracking-widest">Đăng ký Foundation</button>
+                        </div>
+
+                        <!-- BPO Growth -->
+                        <div class="pricing-card bg-slate-900 p-10 rounded-[3.5rem] text-white shadow-2xl relative lg:-translate-y-4 border-b-8 border-blue-600 flex flex-col">
+                            <div class="absolute top-6 right-8 bg-blue-600 text-[9px] px-3 py-1 rounded-full font-black uppercase tracking-widest italic animate-pulse">Hiệu quả nhất</div>
+                            <div class="mb-8">
+                                <h3 class="text-xl font-black text-blue-400 uppercase italic tracking-tighter">B2B Accelerator</h3>
+                                <p class="text-[10px] font-bold text-blue-300/60 mt-2">MỤC TIÊU: BÙNG NỔ LEAD MỚI</p>
+                            </div>
+                            <div class="mb-10">
+                                <span class="text-3xl font-black text-white tracking-tighter">35.000.000đ</span>
+                                <span class="text-slate-400 font-medium italic">/tháng</span>
+                            </div>
+                            <ul class="space-y-4 mb-12 flex-grow text-xs font-bold text-slate-300">
+                                <li class="flex items-start gap-2"><span class="text-blue-500">✓</span> SEO: 15 bài chất lượng & Tối ưu AI Search</li>
+                                <li class="flex items-start gap-2"><span class="text-blue-500">✓</span> Email: 08 kịch bản tự động theo hành vi</li>
+                                <li class="flex items-start gap-2"><span class="text-blue-500">✓</span> Ads: Vận hành quảng cáo Google/LinkedIn</li>
+                                <li class="flex items-start gap-2"><span class="text-blue-500">✓</span> Cảnh báo Lead Nóng trực tiếp cho Sales</li>
+                                <li class="flex items-start gap-2"><span class="text-blue-500">✓</span> Thiết kế 01 Landing Page chuẩn CRO/Quý</li>
+                            </ul>
+                            <button onclick="openModal()" class="w-full py-5 bg-blue-600 text-white font-black rounded-3xl shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition-all uppercase italic text-sm tracking-widest">Bắt đầu Tăng trưởng</button>
+                        </div>
+
+                        <!-- BPO Authority -->
+                        <div class="pricing-card bg-slate-50 p-10 rounded-[3.5rem] border border-slate-100 flex flex-col group">
+                            <div class="mb-8">
+                                <h3 class="text-xl font-black text-slate-800 uppercase italic tracking-tighter">B2B Enterprise</h3>
+                                <p class="text-[10px] font-bold text-slate-400 mt-2">MỤC TIÊU: THỐNG TRỊ NGÀNH</p>
+                            </div>
+                            <div class="mb-10">
+                                <span class="text-3xl font-black text-slate-900 tracking-tighter">Liên hệ</span>
+                                <p class="text-[10px] text-slate-400 mt-1 uppercase italic font-bold tracking-widest">Tư vấn theo dự án</p>
+                            </div>
+                            <ul class="space-y-4 mb-12 flex-grow text-xs font-medium text-slate-600">
+                                <li class="flex items-start gap-2"><span>★</span> Tổ chức Webinar/Hội thảo trực tuyến trọn gói</li>
+                                <li class="flex items-start gap-2"><span>★</span> Sản xuất Whitepaper & Báo cáo ngành VIP</li>
+                                <li class="flex items-start gap-2"><span>★</span> Chiến lược Email ABM săn khách hàng lớn</li>
+                                <li class="flex items-start gap-2"><span>★</span> Đào tạo Sales khai thác dữ liệu thực chiến</li>
+                                <li class="flex items-start gap-2"><span>★</span> Tư vấn chiến lược đánh chiếm thị trường mới</li>
+                            </ul>
+                            <button onclick="openModal()" class="w-full py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-black transition-all uppercase italic text-xs tracking-widest">Liên hệ chuyên gia</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VALUE COMPARISON (TIẾT KIỆM CHI PHÍ) -->
+        <section class="py-24 bg-blue-900 text-white relative overflow-hidden">
+            <div class="absolute right-0 top-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h3 class="text-3xl md:text-5xl font-black italic uppercase mb-12 tracking-tighter">Bài toán tối ưu ngân sách</h3>
+                <div class="max-w-4xl mx-auto bg-white/5 border border-white/10 p-12 rounded-[4rem] backdrop-blur-md">
+                    <p class="text-lg text-blue-200 mb-10 italic">Tại sao đầu tư vào BPO Marketing lại mang về lợi nhuận cao hơn?</p>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <div class="flex justify-between text-xs font-black uppercase tracking-widest mb-2"><span>Phòng Marketing nội bộ</span><span>120Tr+/Tháng</span></div>
+                            <div class="h-3 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-slate-500 w-full"></div></div>
+                            <p class="text-[10px] text-slate-400 italic text-left">Bao gồm: Lương chuyên gia, bảo hiểm, văn phòng, đào tạo, quản lý...</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex justify-between text-xs font-black uppercase tracking-widest mb-2 text-blue-400"><span>Giải pháp BPO (Growth)</span><span>35Tr/Tháng</span></div>
+                            <div class="h-5 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-blue-600 w-[30%] shadow-[0_0_20px_rgba(37,99,235,0.6)]"></div></div>
+                            <p class="text-[10px] text-blue-300 italic text-left">Sở hữu ngay team chuyên gia 5 người (SEO, Email, Ads, Design, Chiến lược).</p>
+                        </div>
+                    </div>
+                    <div class="mt-12 pt-8 border-t border-white/5">
+                        <p class="text-2xl font-black italic uppercase text-blue-400 tracking-tighter">Tiết kiệm > 60% chi phí vận hành</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ FOR PRICING -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h2 class="text-2xl font-black text-slate-900 uppercase italic tracking-tighter mb-12 text-center">Câu hỏi thường gặp về Báo giá</h2>
+                <div class="space-y-6">
+                    <details class="group border-b border-slate-100 pb-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 list-none group-open:text-blue-600 transition-colors">
+                            <span>Chi phí BPO đã bao gồm ngân sách chạy quảng cáo chưa?</span>
+                            <span class="text-2xl">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-500 text-sm leading-relaxed italic">Chưa. Chi phí BPO là phí chất xám và nhân sự vận hành hệ thống cho bạn. Ngân sách quảng cáo (trả cho Google/LinkedIn) sẽ do doanh nghiệp chi trả trực tiếp cho nền tảng dựa trên tư vấn tối ưu của chúng tôi.</p>
+                    </details>
+                    <details class="group border-b border-slate-100 pb-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 list-none group-open:text-blue-600 transition-colors">
+                            <span>Tôi có bắt buộc phải mua cả Hệ thống và Dịch vụ BPO không?</span>
+                            <span class="text-2xl">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-500 text-sm leading-relaxed italic">Không bắt buộc. Tuy nhiên, chúng tôi khuyến khích dùng cả hai để đạt hiệu quả tối ưu nhất. Hệ thống BowNow là "cỗ máy", còn BPO là "đội ngũ vận hành". Nếu bạn đã có nhân sự Marketing giỏi, bạn có thể chỉ mua Hệ thống SaaS.</p>
+                    </details>
+                    <details class="group border-b border-slate-100 pb-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-bold text-slate-800 list-none group-open:text-blue-600 transition-colors">
+                            <span>Hợp đồng dịch vụ BPO tối thiểu là bao lâu?</span>
+                            <span class="text-2xl">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-500 text-sm leading-relaxed italic">Để các chiến dịch SEO và Email Automation phát huy hiệu quả và ra Lead ổn định, chúng tôi ký hợp đồng vận hành tối thiểu 06 tháng. Phí dịch vụ được thanh toán định kỳ hàng tháng.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="py-32 bg-slate-950 text-white text-center">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-8 leading-none">Chưa tìm thấy gói <br> phù hợp cho doanh nghiệp?</h2>
+                <p class="text-slate-400 text-lg mb-12 italic max-w-2xl mx-auto leading-relaxed">Đội ngũ chuyên gia của chúng tôi sẵn sàng xây dựng một lộ trình tăng trưởng riêng biệt dựa trên nguồn lực thực tế của bạn.</p>
+                <button onclick="openModal()" class="px-12 py-5 bg-blue-600 text-white font-black rounded-2xl text-xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 transition-all uppercase italic tracking-tighter">Đặt lịch Audit 1:1 miễn phí</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 pt-20 pb-12 text-white border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16 text-center md:text-left">
+                <div>
+                    <div class="text-3xl font-black italic uppercase tracking-tighter">BowNow<span class="text-blue-600">.</span></div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2 tracking-widest leading-loose uppercase italic">BPO Marketing & SaaS Partner Japan</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[11px] font-bold tracking-widest uppercase mb-1 text-slate-400">📍 224A-224B Điện Biên Phủ, Quận 3, TP.HCM</p>
+                    <p class="text-2xl font-black text-blue-500 tracking-tighter italic leading-none">0794 805 648</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] text-slate-700 uppercase font-black tracking-[0.35em] gap-6 text-center">
+                <p>© 2024 BowNow B2B. CHUYÊN GIA VẬN HÀNH BPO MARKETING.</p>
+                <div class="flex gap-10">
+                    <a href="#" class="hover:text-blue-400 transition font-black italic underline decoration-blue-600/50 underline-offset-4">Privacy Policy</a>
+                    <a href="#" class="hover:text-blue-400 transition font-black italic underline decoration-blue-600/50 underline-offset-4">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LEAD MODAL FORM -->
+    <div id="contact-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-6 bg-slate-950/90 backdrop-blur-md">
+        <div class="bg-white w-full max-w-xl rounded-[4rem] shadow-2xl overflow-hidden relative">
+            <button onclick="closeModal()" class="absolute top-10 right-10 w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all font-black shadow-sm">✕</button>
+            <div class="p-12 md:p-16">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl font-black text-slate-900 italic uppercase leading-tight tracking-tighter">Bắt đầu Tăng trưởng</h3>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 italic">Chọn gói đầu tư phù hợp cho bạn</p>
+                </div>
+                <form id="lead-form" class="space-y-6">
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Họ và tên *</label>
+                        <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Số điện thoại *</label>
+                            <input type="tel" required placeholder="0794 805 648" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Gói quan tâm *</label>
+                            <select class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner appearance-none">
+                                <option>Gói Foundation (15Tr)</option>
+                                <option>Gói Growth (35Tr)</option>
+                                <option>Gói Authority (60Tr)</option>
+                                <option>Hệ thống SaaS ($200-$500)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Tên doanh nghiệp *</label>
+                        <input type="text" required placeholder="Công ty TNHH ABC" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                    </div>
+                    
+                    <button type="submit" class="w-full py-6 bg-blue-600 text-white font-black rounded-[3rem] text-xl shadow-xl shadow-blue-500/20 hover:bg-blue-900 transition-all uppercase italic mt-4 active:scale-95">
+                        Xác nhận đăng ký tư vấn
+                    </button>
+                </form>
+                <!-- Success Message -->
+                <div id="form-success" class="hidden absolute inset-0 bg-white z-30 flex flex-col items-center justify-center text-center p-12">
+                    <div class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-5xl mb-8 animate-bounce">✓</div>
+                    <h4 class="text-3xl font-black text-slate-900 uppercase italic">Gửi thành công!</h4>
+                    <button onclick="closeModal()" class="mt-10 text-blue-600 font-black text-xs uppercase underline tracking-widest italic">Đóng thông báo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

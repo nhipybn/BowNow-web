@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BowNow System | Hệ thống Định danh & Chốt đơn B2B số 1 Nhật Bản</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .bg-mesh {
+            background-color: #ffffff;
+            background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.04) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.04) 0px, transparent 50%);
+        }
+
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, #f1f5f9 0%, #2563eb 20%, #1e3a8a 80%, #f1f5f9 100%);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-container::before { left: 32px; transform: none; }
+        }
+
+        .step-blob {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-blob:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.3);
+        }
+
+        #contact-modal.hidden { display: none; }
+        #contact-modal.flex { display: flex; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased bg-mesh">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed w-full top-0 z-[100] bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">
+                BowNow.
+            </div>
+            <div class="hidden lg:flex space-x-10 font-bold text-slate-500 text-[10px] uppercase tracking-[0.2em]">
+                <a href="index.html" class="hover:text-blue-600 transition">Trang chủ</a>
+                <a href="service.html" class="hover:text-blue-600 transition">Hệ thống</a>
+                <a href="bposervice.html" class="hover:text-blue-600 transition">Dịch vụ BPO</a>
+                <a href="pricing.html" class="text-blue-600">Bảng giá</a>
+                <a href="blog.html" class="hover:text-blue-600 transition">Blog</a>
+            </div>
+            <button onclick="openModal()" 
+                class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200 text-sm">
+                Liên hệ tư vấn
+            </button>
+        </nav>
+    </header>
+    <main class="pt-32">
+        
+        <!-- SECTION 1: HERO -->
+        <section id="intro" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <span class="inline-block px-4 py-1.5 mb-8 text-[10px] font-black tracking-[0.4em] text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
+                        Marketing Automation for B2B
+                    </span>
+                    <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 tracking-tighter uppercase italic">
+                        Cỗ máy <span class="text-blue-600 italic">Tự động</span> <br> săn tìm khách hàng
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed font-medium italic">
+                        BowNow biến Website thành một nhân viên kinh doanh mẫn cán: Tự định danh công ty đang xem web và báo chuông cho Sales ngay khi khách "muốn mua".
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PAIN VS SOLUTION (GIÚP ÍCH GÌ CHO DOANH NGHIỆP?) -->
+        <section class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-xs font-black text-blue-600 uppercase tracking-[0.4em] mb-4 italic">The B2B Revolution</h2>
+                    <h3 class="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight">Tại sao doanh nghiệp bạn <br> cần BowNow ngay hôm nay?</h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <!-- Before -->
+                    <div class="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-sm opacity-60">
+                        <div class="w-12 h-12 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mb-8">✕</div>
+                        <h4 class="text-xl font-bold text-slate-800 mb-6 uppercase tracking-widest italic">Cách làm truyền thống</h4>
+                        <ul class="space-y-4 text-sm text-slate-500 font-medium">
+                            <li class="flex gap-3"><span>●</span> Lãng phí 95% traffic vào web mà không biết họ là ai.</li>
+                            <li class="flex gap-3"><span>●</span> Sales phải "gọi mò" danh sách khách lạnh, tỷ lệ chối từ cao.</li>
+                            <li class="flex gap-3"><span>●</span> Đổ tiền quảng cáo nhưng không đo lường được nguồn nào ra tiền.</li>
+                            <li class="flex gap-3"><span>●</span> Bỏ sót khách hàng cũ do không có hệ thống nuôi dưỡng.</li>
+                        </ul>
+                    </div>
+                    <!-- After -->
+                    <div class="bg-white p-10 rounded-[3rem] border-4 border-blue-600 shadow-2xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 -mr-16 -mt-16 rounded-full group-hover:scale-150 transition-all duration-700"></div>
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mb-8 shadow-lg">✓</div>
+                        <h4 class="text-xl font-bold text-blue-600 mb-6 uppercase tracking-widest italic">Khi có hệ thống BowNow</h4>
+                        <ul class="space-y-4 text-sm text-slate-800 font-bold">
+                            <li class="flex gap-3"><span class="text-blue-600">●</span> Định danh 20-30% công ty đang truy cập ẩn danh.</li>
+                            <li class="flex gap-3"><span class="text-blue-600">●</span> Sales nhận báo động đỏ khi khách VIP đang xem báo giá.</li>
+                            <li class="flex gap-3"><span class="text-blue-600">●</span> Tự động hóa phễu nuôi dưỡng bằng Email kịch bản.</li>
+                            <li class="flex gap-3"><span class="text-blue-600">●</span> Tối ưu 40% ngân sách Marketing dựa trên dữ liệu thật.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: THE ROADMAP (FUNNEL) -->
+        <section id="roadmap" class="py-24 bg-white relative overflow-hidden">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center mb-32">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 uppercase italic tracking-tighter underline decoration-blue-600 decoration-4 underline-offset-8">Lộ trình vận hành hệ thống</h2>
+                </div>
+
+                <div class="roadmap-container relative max-w-6xl mx-auto px-4 md:px-0">
+                    
+                    <!-- Bước 1: Tracking Nguồn -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-44 group">
+                        <div class="md:w-1/2 md:pr-24 text-center md:text-right mb-12 md:mb-0">
+                            <div class="inline-flex items-center gap-2 mb-4 md:flex-row-reverse">
+                                <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-black text-xs shadow-sm">01</span>
+                                <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Tracking Nguồn</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4 tracking-tighter leading-tight">Tối ưu nguồn tiền <br> Marketing</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                Theo dõi dữ liệu từ Facebook, Google Ads, AI Search. BowNow giúp bạn biết chính xác nguồn nào mang lại khách hàng thực sự để tối ưu chi phí.
+                            </p>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl shadow-2xl flex items-center justify-center text-white step-blob z-10 border-4 border-white">
+                            <i data-lucide="target" class="w-8 h-8"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-24 hidden md:block opacity-40 group-hover:opacity-100 transition-opacity">
+                            <p class="text-xs text-slate-400 italic">"Dừng việc đổ tiền vào những kênh không mang lại chuyển đổi."</p>
+                        </div>
+                    </div>
+
+                    <!-- Bước 2: Định danh -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center mb-44 group">
+                        <div class="md:w-1/2 md:pl-24 text-center md:text-left mb-12 md:mb-0">
+                            <div class="inline-flex items-center gap-2 mb-4">
+                                <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-black text-xs shadow-sm">02</span>
+                                <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Định danh</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4 tracking-tighter leading-tight">Nhận diện doanh nghiệp <br> theo dõi hành vi</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                Kết hợp nội dung thúc đẩy khách hàng để lại thông tin và tracking IP, tạo profile 360 độ về mức độ quan tâm của khách hàng.
+                            </p>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-900 rounded-2xl shadow-2xl flex items-center justify-center text-white step-blob z-10 border-4 border-white">
+                            <i data-lucide="user-check" class="w-8 h-8"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pr-24 hidden md:block"></div>
+                    </div>
+
+                    <!-- Bước 3: Tracking hành vi -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-44 group">
+                        <div class="md:w-1/2 md:pr-24 text-center md:text-right mb-12 md:mb-0">
+                            <div class="inline-flex items-center gap-2 mb-4 md:flex-row-reverse">
+                                <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-black text-xs shadow-sm">03</span>
+                                <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Hành vi</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4 tracking-tighter leading-tight">Thấu hiểu <br> Nhu cầu thực tế</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                Tracking chi tiết khách đang xem báo giá nào hay bài viết nào. Giúp bạn hiểu rõ "nỗi đau" của khách trước khi tiếp cận.
+                            </p>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl shadow-2xl flex items-center justify-center text-white step-blob z-10 border-4 border-white">
+                            <i data-lucide="eye" class="w-8 h-8"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-24 hidden md:block"></div>
+                    </div>
+
+                    <!-- Bước 4: Email Automation -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center mb-44 group">
+                        <div class="md:w-1/2 md:pl-24 text-center md:text-left mb-12 md:mb-0">
+                            <div class="inline-flex items-center gap-2 mb-4">
+                                <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-black text-xs shadow-sm">04</span>
+                                <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Nuôi dưỡng</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4 tracking-tighter leading-tight">Nuôi dưỡng tự động <br> bằng Email kịch bản</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                Hệ thống tự động gửi tài liệu, báo giá đúng thứ khách vừa xem. Không cần nhân sự trực web, khách vẫn được chăm sóc 24/7.
+                            </p>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-900 rounded-2xl shadow-2xl flex items-center justify-center text-white step-blob z-10 border-4 border-white">
+                            <i data-lucide="mail" class="w-8 h-8"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pr-24 hidden md:block"></div>
+                    </div>
+
+                    <!-- Bước 5: Scoring -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-44 group">
+                        <div class="md:w-1/2 md:pr-24 text-center md:text-right mb-12 md:mb-0">
+                            <div class="inline-flex items-center gap-2 mb-4 md:flex-row-reverse">
+                                <span class="w-8 h-8 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-black text-xs shadow-sm">05</span>
+                                <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Chấm điểm</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4 tracking-tighter leading-tight">Phân loại <br> Khách hàng tiềm năng</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                Đo lường mức độ quan tâm qua lượt mở mail, click link để tự động chấm điểm (Scoring). Phân loại chính xác tệp khách Nóng - Ấm - Lạnh.
+                            </p>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl shadow-2xl flex items-center justify-center text-white step-blob z-10 border-4 border-white">
+                            <i data-lucide="bar-chart-3" class="w-8 h-8"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-24 hidden md:block"></div>
+                    </div>
+
+                    <!-- Bước 6: Sales Action -->
+                    <div class="relative flex flex-col md:flex-row-reverse items-center mb-44 group">
+                        <div class="md:w-1/2 md:pl-24 text-center md:text-left mb-12 md:mb-0">
+                            <div class="inline-flex items-center gap-2 mb-4">
+                                <span class="w-8 h-8 bg-red-50 text-red-600 rounded-lg flex items-center justify-center font-black text-xs shadow-sm">06</span>
+                                <span class="text-[10px] font-black text-red-600 uppercase tracking-widest">Hành động</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4 tracking-tighter leading-tight">Báo động đỏ <br> Chốt đơn tức thì</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                Khi khách đạt điểm "Nóng", hệ thống gửi thông báo ngay cho Sales. Sales sẽ nhấc máy gọi đúng lúc khách đang có nhu cầu cao nhất.
+                            </p>
+                        </div>
+                        <div class="w-16 h-16 bg-red-600 rounded-2xl shadow-2xl flex items-center justify-center text-white step-blob z-10 border-4 border-white">
+                            <i data-lucide="bell" class="w-8 h-8 animate-pulse"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pr-24 hidden md:block"></div>
+                    </div>
+
+                    <!-- Bước 7: ROI -->
+                    <div class="relative flex flex-col md:flex-row items-center group">
+                        <div class="md:w-1/2 md:pr-24 text-center md:text-right mb-12 md:mb-0">
+                            <div class="inline-flex items-center gap-2 mb-4 md:flex-row-reverse">
+                                <span class="w-8 h-8 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center font-black text-xs shadow-sm">07</span>
+                                <span class="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Báo cáo</span>
+                            </div>
+                            <h3 class="text-2xl font-black text-slate-900 uppercase italic mb-4 tracking-tighter leading-tight">Báo cáo ROI <br> & Hiệu quả kinh doanh</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed font-medium">
+                                Báo cáo hợp nhất Marketing & Sales. Bạn biết rõ Marketing mang về bao nhiêu Lead và Sales chốt được bao nhiêu tiền từ nguồn đó.
+                            </p>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-900 rounded-2xl shadow-2xl flex items-center justify-center text-white step-blob z-10 border-4 border-white">
+                            <i data-lucide="clipboard-check" class="w-8 h-8"></i>
+                        </div>
+                        <div class="md:w-1/2 md:pl-24 hidden md:block"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CALL TO ACTION -->
+        <section id="final-cta" class="py-32 bg-slate-950 text-white relative overflow-hidden border-t border-white/5">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px] -mr-48 -mt-48"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-10">Dừng việc lãng phí <br> dữ liệu khách hàng</h2>
+                <p class="text-slate-400 text-lg mb-14 italic max-w-2xl mx-auto">Tận dụng sức mạnh công nghệ Marketing Automation Nhật Bản để bứt phá doanh thu ngay hôm nay.</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button onclick="openModal()" class="px-12 py-5 bg-blue-600 text-white font-black rounded-2xl text-xl shadow-2xl shadow-blue-500/20 hover:bg-blue-700 hover:scale-105 transition-all uppercase italic tracking-tighter">Đặt lịch tư vấn Audit</button>
+                    <button onclick="openModal()" class="px-12 py-5 bg-white/5 border border-white/20 text-white font-black rounded-2xl text-xl hover:bg-white/10 transition-all uppercase italic tracking-tighter">Nhận Báo Giá Hệ Thống</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 pt-20 pb-12 text-white border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16 text-center md:text-left">
+                <div>
+                    <div class="text-3xl font-black italic uppercase tracking-tighter">BowNow<span class="text-blue-600">.</span></div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2 tracking-widest leading-loose">Hệ thống định danh khách hàng <br> ẩn danh hàng đầu Nhật Bản.</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[11px] font-bold tracking-widest uppercase mb-1 text-slate-400">📍 224A-224B Điện Biên Phủ, Quận 3, TP.HCM</p>
+                    <p class="text-2xl font-black text-blue-500 tracking-tighter italic leading-none">0794 805 648</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] text-slate-700 uppercase font-black tracking-[0.35em] gap-6 text-center">
+                <p>© 2024 BowNow B2B. POWERED BY BOWNOW SYSTEM JAPAN.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-blue-400 transition">Chính sách bảo mật</a>
+                    <a href="#" class="hover:text-blue-400 transition">Điều khoản dịch vụ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LEAD MODAL FORM -->
+    <div id="contact-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-6 bg-slate-950/90 backdrop-blur-md">
+        <div class="bg-white w-full max-w-xl rounded-[4rem] shadow-2xl overflow-hidden relative">
+            <button onclick="closeModal()" class="absolute top-10 right-10 w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all font-black shadow-sm">✕</button>
+            <div class="p-12 md:p-16">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl font-black text-slate-900 italic uppercase leading-tight tracking-tighter">Bắt đầu Số hóa</h3>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 italic">Dữ liệu của bạn - Doanh thu của chúng tôi</p>
+                </div>
+                
+                <form id="lead-form" class="space-y-6">
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Họ và tên *</label>
+                        <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Số điện thoại *</label>
+                            <input type="tel" required placeholder="0794 805 648" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Email công ty *</label>
+                            <input type="email" required placeholder="ceo@company.com" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Tên doanh nghiệp *</label>
+                        <input type="text" required placeholder="Công ty TNHH ABC" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                    </div>
+                    
+                    <button type="submit" class="w-full py-6 bg-blue-600 text-white font-black rounded-[3rem] text-xl shadow-xl shadow-blue-500/20 hover:bg-blue-900 transition-all uppercase italic mt-4 active:scale-95">
+                        Xác nhận nhận Demo ngay
+                    </button>
+                </form>
+                <!-- Success Message -->
+                <div id="form-success" class="hidden absolute inset-0 bg-white z-30 flex flex-col items-center justify-center text-center p-12">
+                    <div class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-5xl mb-8">✓</div>
+                    <h4 class="text-3xl font-black text-slate-900 uppercase italic">Gửi thành công!</h4>
+                    <p class="text-slate-500 mt-4 text-sm leading-relaxed">Đội ngũ chuyên gia từ BowNow sẽ nghiên cứu website của bạn và liên hệ tư vấn giải pháp trong thời gian sớm nhất.</p>
+                    <button onclick="closeModal()" class="mt-10 text-blue-600 font-black text-xs uppercase underline tracking-widest italic">Đóng thông báo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        const modal = document.getElementById('contact-modal');
+        const successOverlay = document.getElementById('form-success');
+        const leadForm = document.getElementById('lead-form');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            successOverlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (leadForm) {
+            leadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = leadForm.querySelector('button[type="submit"]');
+                btn.disabled = true;
+                btn.innerHTML = "Đang xử lý...";
+                
+                setTimeout(() => {
+                    successOverlay.classList.remove('hidden');
+                    leadForm.reset();
+                    btn.disabled = false;
+                    btn.innerHTML = "Xác nhận nhận Demo ngay";
+                }, 1500);
+            });
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Tiêu đề bài viết] | BowNow Insights</title>
+    <meta name="description" content="[Mô tả ngắn cho SEO - Khoảng 150 ký tự]">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .bg-mesh {
+            background-color: #ffffff;
+            background-image: radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.02) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.02) 0px, transparent 50%);
+        }
+
+        /* Typography cho nội dung bài viết */
+        .post-content h2 { 
+            font-size: 1.875rem; font-weight: 800; font-style: italic; 
+            text-transform: uppercase; margin-top: 3rem; margin-bottom: 1.5rem; 
+            color: #0f172a; line-height: 1.2; letter-spacing: -0.025em;
+        }
+        .post-content p { 
+            font-size: 1.125rem; line-height: 1.8; color: #475569; margin-bottom: 1.5rem; 
+        }
+        .post-content b, .post-content strong { color: #1e293b; font-weight: 700; }
+        
+        #contact-modal.hidden { display: none; }
+        #contact-modal.flex { display: flex; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased bg-mesh">
+
+    <!-- NAVIGATION BAR - THỐNG NHẤT -->
+    <header class="fixed w-full top-0 z-[100] bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic uppercase tracking-tighter">
+                <a href="index.html">BowNow.</a>
+            </div>
+            <div class="hidden lg:flex space-x-10 font-bold text-slate-500 text-[10px] uppercase tracking-[0.2em]">
+                <a href="index.html" class="hover:text-blue-600 transition">Trang chủ</a>
+                <a href="saas_bownow.html" class="hover:text-blue-600 transition">Hệ thống</a>
+                <a href="bposervice.html" class="hover:text-blue-600 transition">Dịch vụ BPO</a>
+                <a href="pricing.html" class="hover:text-blue-600 transition">Bảng giá</a>
+                <a href="blog.html" class="text-blue-600">Blog</a>
+            </div>
+            <button onclick="openModal()" 
+                class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200 text-sm">
+                Liên hệ tư vấn
+            </button>
+        </nav>
+    </header>
+
+    <main class="pt-40 pb-24">
+        <article class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- BREADCRUMB -->
+            <nav class="flex justify-center mb-8 text-[10px] font-bold uppercase tracking-widest text-slate-400" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2">
+                    <li><a href="index.html" class="hover:text-blue-600">Trang chủ</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li><a href="blog.html" class="hover:text-blue-600">Blog</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li class="text-blue-600 truncate max-w-[200px]" aria-current="page">Tiêu đề bài viết</li>
+                </ol>
+            </nav>
+
+            <!-- POST HEADER -->
+            <header class="mb-16 text-center">
+                <div class="mb-6">
+                    <span class="bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-blue-100">
+                        [Danh mục bài viết]
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tighter leading-tight mb-10">
+                    [Tên bài viết: Ví dụ - 5 Kịch bản Email Automation tăng chuyển đổi]
+                </h1>
+                <div class="flex items-center justify-center gap-6 text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="user" class="w-3.5 h-3.5"></i>
+                        <span>By BowNow Team</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                        <time datetime="2024-03-05">05 Tháng 3, 2024</time>
+                    </div>
+                </div>
+            </header>
+
+            <!-- FEATURED IMAGE -->
+            <div class="rounded-[3rem] overflow-hidden mb-16 shadow-2xl border border-slate-100">
+                
+                <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=1200&q=80" 
+                     alt="Featured Image" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- MAIN CONTENT AREA -->
+            <div class="post-content">
+                <p class="text-xl font-medium text-slate-600 italic leading-relaxed mb-12 border-l-4 border-blue-600 pl-8">
+                    [Đoạn Sapo: Tóm tắt giá trị bài viết. Ví dụ: Trong kỷ nguyên số hóa B2B, việc gửi đúng thông điệp vào đúng thời điểm không còn là lựa chọn, mà là yêu cầu sống còn...]
+                </p>
+
+                <h2>1. Tiêu đề phụ bài viết (Heading 2)</h2>
+                <p>Nội dung chi tiết của phần 1. Bạn có thể chèn các phân tích chuyên sâu tại đây. Sử dụng <strong>các đoạn in đậm</strong> để nhấn mạnh các từ khóa chính liên quan đến dịch vụ của BowNow.</p>
+                <p>Hệ thống BowNow hỗ trợ định danh khách hàng giúp quy trình này trở nên dễ dàng hơn bao giờ hết...</p>
+
+                <!-- CALL TO ACTION BOX (TRONG BÀI VIẾT) -->
+                <div class="my-20 bg-slate-950 rounded-[3rem] p-10 md:p-14 text-white relative overflow-hidden shadow-2xl">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
+                        <div class="flex-grow">
+                            <h3 class="text-2xl font-black italic uppercase tracking-tighter mb-4 text-blue-400">Bạn muốn tối ưu phễu Marketing B2B?</h3>
+                            <p class="text-slate-400 text-sm font-medium leading-relaxed italic">
+                                Đội ngũ chuyên gia của BowNow sẵn sàng Audit hệ thống và xây dựng lộ trình tăng trưởng Lead cho bạn hoàn toàn miễn phí.
+                            </p>
+                        </div>
+                        <button onclick="openModal()" class="whitespace-nowrap px-10 py-5 bg-blue-600 text-white font-black rounded-2xl text-sm shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition-all uppercase italic tracking-widest">
+                            Đăng ký Audit ngay
+                        </button>
+                    </div>
+                </div>
+
+                <h2>2. Tiêu đề phụ tiếp theo</h2>
+                <p>Nội dung chi tiết của phần 2. Hãy tập trung vào việc giải quyết nỗi đau của khách hàng (pain points) và đưa ra giải pháp từ kinh nghiệm của Agency.</p>
+                
+                <ul class="space-y-4 my-8 pl-6">
+                    <li class="flex items-start gap-3 text-slate-600 font-medium">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i>
+                        <span>Ý chính 1: Tối ưu hóa dữ liệu khách hàng cũ.</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-slate-600 font-medium">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 shrink-0"></i>
+                        <span>Ý chính 2: Chấm điểm Lead (Lead Scoring) tự động.</span>
+                    </li>
+                </ul>
+
+                <h2>Kết luận</h2>
+                <p>Tóm tắt lại giá trị của bài viết và kêu gọi khách hàng hành động hoặc tìm hiểu thêm về các dịch vụ BPO của BowNow.</p>
+            </div>
+
+            <!-- POST FOOTER / SHARE -->
+            <footer class="mt-24 pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
+                <a href="blog.html" class="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Quay lại Blog
+                </a>
+                <div class="flex items-center gap-6">
+                    <span class="text-[10px] font-black text-slate-300 uppercase tracking-widest">Chia sẻ bài viết:</span>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition shadow-sm">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition shadow-sm">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <!-- FOOTER - THỐNG NHẤT -->
+    <footer class="bg-white pt-20 pb-12 text-slate-400 border-t border-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16 text-center md:text-left">
+                <div>
+                    <div class="text-3xl font-black italic uppercase tracking-tighter text-slate-900">BowNow<span class="text-blue-600">.</span></div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2 tracking-widest leading-loose uppercase italic opacity-70">Outsourced B2B Marketing Hub Japan</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[11px] font-bold tracking-widest uppercase mb-1">📍 224A-224B Điện Biên Phủ, Quận 3, TP.HCM</p>
+                    <p class="text-2xl font-black text-blue-600 tracking-tighter italic leading-none underline underline-offset-8">0794 805 648</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center text-[9px] text-slate-400 uppercase font-black tracking-[0.35em] gap-6 text-center">
+                <p>© 2024 BowNow B2B. CHUYÊN GIA VẬN HÀNH BPO MARKETING.</p>
+                <div class="flex gap-10">
+                    <a href="#" class="hover:text-blue-600 transition">Chính sách bảo mật</a>
+                    <a href="#" class="hover:text-blue-600 transition">Điều khoản sử dụng</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LEAD MODAL FORM - THỐNG NHẤT LOGIC -->
+    <div id="contact-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-6 bg-slate-950/90 backdrop-blur-md">
+        <div class="bg-white w-full max-w-xl rounded-[4rem] shadow-2xl overflow-hidden relative animate-in fade-in zoom-in duration-300">
+            <button onclick="closeModal()" class="absolute top-10 right-10 w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all font-black shadow-sm">✕</button>
+            <div class="p-10 md:p-16">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl font-black text-slate-900 italic uppercase leading-tight tracking-tighter">Liên hệ tư vấn</h3>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mt-2 italic">Dành riêng cho doanh nghiệp B2B</p>
+                </div>
+                <form id="lead-form" class="space-y-6">
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Họ và tên *</label>
+                        <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Số điện thoại *</label>
+                            <input type="tel" required placeholder="0794 805 648" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Email doanh nghiệp *</label>
+                            <input type="email" required placeholder="ceo@company.com" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black uppercase text-slate-400 ml-4 tracking-widest italic opacity-80">Công ty *</label>
+                        <input type="text" required placeholder="Công ty TNHH ABC" class="w-full px-8 py-5 bg-slate-50 border-none rounded-[2.2rem] focus:ring-4 focus:ring-blue-100 outline-none transition font-bold text-slate-900 text-sm shadow-inner">
+                    </div>
+                    <button type="submit" class="w-full py-6 bg-blue-600 text-white font-black rounded-[3rem] text-xl shadow-xl shadow-blue-500/20 hover:bg-blue-900 transition-all uppercase italic mt-4 active:scale-95">
+                        Xác nhận gửi thông tin
+                    </button>
+                </form>
+                <!-- Success Message -->
+                <div id="form-success" class="hidden absolute inset-0 bg-white z-30 flex flex-col items-center justify-center text-center p-12">
+                    <div class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-5xl mb-8 animate-bounce">✓</div>
+                    <h4 class="text-3xl font-black text-slate-900 uppercase italic">Thành công!</h4>
+                    <p class="text-slate-500 mt-4 text-sm font-medium leading-relaxed">Chúng tôi sẽ liên hệ tư vấn giải pháp trong vòng 2h làm việc.</p>
+                    <button onclick="closeModal()" class="mt-10 text-blue-600 font-black text-xs uppercase underline tracking-widest">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        const modal = document.getElementById('contact-modal');
+        const successOverlay = document.getElementById('form-success');
+        const leadForm = document.getElementById('lead-form');
+
+        window.openModal = function() {
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closeModal = function() {
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                if (successOverlay) successOverlay.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        if (leadForm) {
+            leadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = leadForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = "Đang gửi thông tin...";
+                setTimeout(() => {
+                    successOverlay.classList.remove('hidden');
+                    leadForm.reset();
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                }, 1500);
+            });
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+    </script>
+</body>
+</html>

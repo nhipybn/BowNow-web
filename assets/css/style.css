@@ -1,0 +1,20 @@
+    /* Swiper Navigation Custom */
+    .case-swiper { padding-bottom: 40px !important; }
+    .swiper-pagination-bullet-active { background: #2563eb !important; width: 24px !important; border-radius: 4px !important; }
+    
+    /* Animation cho biểu đồ */
+    @keyframes barFill { from { width: 0; } to { width: var(--fill); } }
+    .animate-bar { animation: barFill 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+    /* Accordion Style cho FAQ */
+    .faq-item[open] summary svg { transform: rotate(180deg); }
+    summary::-webkit-details-marker { display: none; }
+
+    /* Gradient & Glassmorphism */
+    .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+    .bg-grid-slate { background-image: radial-gradient(#e2e8f0 1px, transparent 1px); background-size: 20px 20px; }
+
+    /* Modal Animation */
+    #contact-modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+    #contact-modal.hidden { opacity: 0; visibility: hidden; display: none; }
+    #contact-modal.flex { opacity: 1; visibility: visible; }
