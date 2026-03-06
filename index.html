@@ -1044,7 +1044,7 @@
                         <summary
                             class="flex justify-between items-center font-bold text-slate-800 cursor-pointer list-none">
                             <span>Tôi có cần phải tuyển thêm nhân sự Marketing khi đã thuê BPO?</span>
-                            <svg class="w-5 h-5 text-blue-600 transition-transform" fill="none" stroke="currentColor"
+                            <svg class="w-5 h-5 text-blue-600 transition-trans" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7"></path>
@@ -1088,7 +1088,7 @@
         </div>
     </section>
 
-    <!-- MODAL FORM: THU THẬP THÔNG TIN KHÁCH HÀNG -->
+    <!-- MODAL : THU THẬP THÔNG TIN KHÁCH HÀNG -->
     <div id="contact-modal"
         class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-slate-950/80 backdrop-blur-sm">
         <div
@@ -1104,59 +1104,83 @@
                     <p class="text-slate-500 text-sm mt-2">Vui lòng để lại thông tin</p>
                 </div>
 
-                <form id="lead-form" class="space-y-4">
-                    <div>
-                        <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Họ và tên
-                            *</label>
-                        <input type="text" required placeholder="Nguyễn Văn A"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-600 outline-none transition">
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Email doanh
-                                nghiệp *</label>
-                            <input type="email" required placeholder="ceo@company.com"
-                                class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-600 outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Số điện thoại
-                                *</label>
-                            <input type="tel" required placeholder="09xx xxx xxx"
-                                class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-600 outline-none transition">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Tên công ty
-                            *</label>
-                        <input type="text" required placeholder="Công ty ABC"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-600 outline-none transition">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Bạn quan tâm đến
-                            gói nào?</label>
-                      <select
-    required
-    class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl 
-           focus:ring-2 focus:ring-blue-600 outline-none transition 
-           text-slate-600 appearance-none">
+               <form id="footer-lead-form" class="space-y-5">
 
-    <option value="" disabled selected hidden>
-        Vui lòng chọn dịch vụ
-    </option>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-    <option value="foundation">Hệ thống BowNow</option>
-        <option value="foundation">BPO Marketing Foundation</option>
-    <option value="growth">BPO Marketing Growth</option>
-    <option value="authority">BPO Marketing Authority</option>
-    <option value="webinar">Tư vấn chiến lược Webinar</option>
-    <option value="explore">Đang tìm hiểu</option>
+<div class="space-y-1.5">
+<label class="block text-[10px] font-black text-slate-400 uppercase ml-3">
+Họ và tên *
+</label>
 
+<input 
+type="text"
+name="fullName"
+required
+placeholder="Nguyễn Văn A"
+class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl">
+</div>
+
+<div class="space-y-1.5">
+<label class="block text-[10px] font-black text-slate-400 uppercase ml-3">
+Số điện thoại *
+</label>
+
+<input 
+type="tel"
+name="phone"
+required
+placeholder="0794 805 648"
+class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl">
+</div>
+
+</div>
+
+<div class="space-y-1.5">
+<label class="block text-[10px] font-black text-slate-400 uppercase ml-3">
+Email doanh nghiệp *
+</label>
+
+<input 
+type="email"
+name="email"
+required
+placeholder="ceo@company.com"
+class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl">
+</div>
+
+<div class="space-y-1.5">
+<label class="block text-[10px] font-black text-slate-400 uppercase ml-3">
+Tên doanh nghiệp *
+</label>
+
+<input 
+type="text"
+name="company"
+required
+placeholder="Công ty CP Công Nghệ ABC"
+class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl">
+</div>
+
+<div class="space-y-1.5">
+<label class="block text-[10px] font-black text-slate-400 uppercase ml-3">
+Nhu cầu ưu tiên của bạn?
+</label>
+
+<select name="service" class="w-full px-6 py-4 bg-slate-50 rounded-2xl">
+<option value="SaaS BowNow">Xây dựng hệ thống SaaS BowNow</option>
+<option value="BPO Marketing">Dịch vụ BPO Marketing (SEO/Email)</option>
+<option value="Webinar B2B">Tổ chức Hội thảo Webinar B2B</option>
+<option value="Audit Marketing">Audit Marketing & Sales toàn diện</option>
 </select>
-                    </div>
-                    <button type="submit"
-                        class="w-full py-5 bg-blue-600 text-white font-black rounded-3xl text-lg shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition uppercase italic mt-4">Xác
-                        nhận gửi thông tin</button>
-                </form>
+
+</div>
+
+<button type="submit">
+Gửi yêu cầu tư vấn ngay
+</button>
+
+</form>
             </div>
         </div>
     </div>
